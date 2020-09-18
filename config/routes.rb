@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'student' => 'students#index'
+  post 'student' => 'students#create'
+  get 'student/:id' => 'students#show'
+  put 'student/:id' => 'students#update'
+  delete 'student/:id' => 'students#destroy'
+  # resources :students
 end
