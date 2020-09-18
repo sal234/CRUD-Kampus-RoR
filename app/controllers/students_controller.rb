@@ -35,6 +35,23 @@ class StudentsController < ApplicationController
             message: "Menampilkan"
         }
     end
+
+    def update
+        @student = Student.find_by_id(params[:id])
+        if @student.update_attributes(student_params)
+          render json: {
+              values: @student,
+              message: "Data diupdate"
+          }
+        else
+         render json: {
+             values:{},
+             message: "Something went wrong"
+         }
+          render 'edit'
+        end
+    end
+    
     
     def destroy
         @student = Student.find(params[:id])
